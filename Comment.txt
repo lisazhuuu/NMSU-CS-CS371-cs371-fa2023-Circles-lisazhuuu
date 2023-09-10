@@ -1,0 +1,43 @@
+Errors I found:
+    1. In the scale function of Circle.java, the parameter factor 
+       should be multiplies by original radius instead of addting
+       to it. 
+       Additionally, factor should be a positive number since the 
+       length of radius can't be negative. So I added if - else 
+       statements that will multiply radius by factor only if factor
+       is positive.
+    2. In the moveBy function of Circle.java, center.y should be set
+       to center.y plus yOffset instead of xOffset, because it should 
+       calculate the distance on the y-axit.
+    3. In the intersects function of Circle1.java, I changed the algorithm
+       so that it compares the distance between two centers, instead of
+       the distances between x position and y position 
+       separately. Since the dignal distance is longer than vertical or
+       horizontal distance, it can be happened that the distance of two 
+       centers is out of range diagnally but not horizontally or vertically.
+       So, in this case, the calculation in terms of distance between two 
+       centers is more accurate. 
+    4. In the intersects function of Circle2.java, I changed the conditions
+       in if condition. The distance should be in between sum of two radius
+       and absolute value of difference of two radius. So that it can take the
+       negative case. It shouldn't be less than one of the radius.
+    5. At the first line inside Circle2 class, it should be super(x,y,radius)
+       instead of super(y,x,radius);
+
+Where I discovered the errors:
+    1. In test case simpleScalesN of Circle1Test, it failed because the result should be 3
+       instead of 2. When parameter is -1, the radius should be the same 
+       which is 3. But it changed to 2.
+    2. In test case simpleMoveDP of Circle1Test,  it failed because the result should be 2 
+       and 4 instead of 2 and 3. When circle that has center at (1, 2) and 
+       radius of 3 moves by 1 horizontally and 2 virtically, the new center
+       should be at (2, 4) instead of (2, 3)
+    3. In test case intersectsTP of Circle1Test, it failed because the result should be true
+       instead of false. The circle that has center at (4, 5) and radius of 4
+       intersects with circle that has center at (1, 2) and radius of 3.
+    4. In test case intersectsTN of Circle2Test, it failed because the result should be true
+       true instead of false. The circle that has center at (-1.9, -0.9) and 
+       radius of 7 intersects with circle that has center at (1, 2) and radius 
+       of 3.
+    5. In test case simpleMoveDP of Circle2Test, it failed because the circle moved to the 
+       position. 
